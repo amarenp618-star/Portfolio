@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amar Enp — Video Editor & AI Creator | عمار إنب</title>
+<meta name="description" content="Video editor, motion & sound designer, and AI video creator. Founder of ENP, a Premiere Pro plugin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0c;--s:#131316;--s2:#1b1b20;--t:#f4f1ea;--m:#9a978f;--a:#f5b942;--l:#2a2a30;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--t);font:400 16px/1.75 'IBM Plex Sans Arabic','Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[lang=en] body{font-family:'Space Grotesk','IBM Plex Sans Arabic',system-ui,sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--l)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font:700 18px 'Space Grotesk';letter-spacing:.5px}.logo b{color:var(--a)}
+.links{display:flex;gap:22px;font-size:14px;color:var(--m)}
+.links a:hover{color:var(--t)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:99px;font-weight:600;font-size:15px;border:1px solid var(--l);cursor:pointer;background:none;color:var(--t);font-family:inherit;transition:.25s}
+.btn.p{background:var(--a);color:#111;border-color:var(--a)}
+.btn:hover{transform:translateY(-2px);border-color:var(--a)}
+#lang{padding:7px 14px;font-size:13px}
+.hero{padding:90px 0 70px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(245,185,66,.18),transparent 70%);top:-160px;inset-inline-end:-120px}
+.tag{display:inline-block;font-size:13px;color:var(--a);border:1px solid rgba(245,185,66,.4);padding:4px 14px;border-radius:99px;margin-bottom:22px}
+h1{font-size:clamp(38px,7vw,76px);line-height:1.12;font-weight:700;letter-spacing:-1px;max-width:900px}
+h1 em{font-style:normal;color:var(--a)}
+.lead{color:var(--m);font-size:clamp(16px,2.2vw,20px);max-width:660px;margin:22px 0 32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--l);border:1px solid var(--l);border-radius:var(--r);overflow:hidden;margin-top:56px}
+.stats div{background:var(--s);padding:22px;text-align:center}
+.stats b{display:block;font:700 34px 'Space Grotesk';color:var(--a)}
+.stats span{font-size:13px;color:var(--m)}
+section{padding:80px 0}
+.k{font:500 13px 'Space Grotesk';letter-spacing:2px;color:var(--a);text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(28px,4.5vw,44px);line-height:1.2;margin-bottom:14px;letter-spacing:-.5px}
+.sub{color:var(--m);max-width:640px;margin-bottom:36px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--s);border:1px solid var(--l);border-radius:var(--r);padding:26px;transition:.3s}
+.card:hover{border-color:rgba(245,185,66,.5);transform:translateY(-4px)}
+.card h3{font-size:19px;margin-bottom:8px}.card p{color:var(--m);font-size:15px}
+.ico{font-size:26px;margin-bottom:12px}
+.plug{background:linear-gradient(135deg,#1c1710,#131316 60%);border:1px solid rgba(245,185,66,.35);border-radius:28px;padding:clamp(26px,5vw,54px);display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.plug ul{list-style:none;margin:20px 0 28px;display:grid;gap:10px}
+.plug li:before{content:"✦";color:var(--a);margin-inline-end:10px}
+.badge{background:var(--s2);border:1px solid var(--l);border-radius:20px;padding:28px;text-align:center}
+.badge b{display:block;font:700 44px 'Space Grotesk';letter-spacing:2px;color:var(--a)}
+.badge small{color:var(--m)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{padding:8px 18px;border-radius:99px;border:1px solid var(--l);background:none;color:var(--m);cursor:pointer;font:inherit;font-size:14px;transition:.2s}
+.chip.on{background:var(--t);color:#111;border-color:var(--t)}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.v{background:var(--s);border:1px solid var(--l);border-radius:var(--r);overflow:hidden}
+.fr{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#1d1d23,#0f0f12);display:grid;place-items:center;cursor:pointer}
+.fr iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{width:68px;height:68px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:#111;font-size:24px;transition:.25s}
+.fr:hover .play{transform:scale(1.1)}
+.v .i{padding:16px 18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.v h4{font-size:16px;font-weight:600}.v small{color:var(--m);font-size:12px}
+.more{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+.tl{display:grid;gap:14px}
+.tl div{background:var(--s);border:1px solid var(--l);border-radius:var(--r);padding:20px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tl b{font-size:17px}.tl span{color:var(--m);font-size:14px}
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tools span{padding:8px 16px;border:1px solid var(--l);border-radius:99px;font-size:14px;background:var(--s)}
+.contact{text-align:center;background:var(--s);border:1px solid var(--l);border-radius:32px;padding:60px 24px}
+.contact .cta{justify-content:center;margin-top:26px}
+footer{padding:30px 0;text-align:center;color:var(--m);font-size:13px}
+@media(max-width:760px){.links{display:none}.plug{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}section{padding:56px 0}.hero{padding:56px 0 40px}}
+</style>
+</head>
+<body>
+<nav><div class="w"><a href="#top" class="logo">AMAR<b>.</b>ENP</a>
+<div class="links" id="nav"></div>
+<button class="btn" id="lang">English</button></div></nav>
+
+<header class="hero" id="top"><div class="w">
+<span class="tag" data-i="tag"></span>
+<h1 data-i="h1" data-html></h1>
+<p class="lead" data-i="lead"></p>
+<div class="cta"><a class="btn p" href="#work" data-i="c1"></a><a class="btn" href="#contact" data-i="c2"></a></div>
+<div class="stats">
+<div><b>3+</b><span data-i="s1"></span></div>
+<div><b>9</b><span data-i="s2"></span></div>
+<div><b>ENP</b><span data-i="s3"></span></div>
+<div><b>AI</b><span data-i="s4"></span></div>
+</div></div></header>
+
+<section id="skills"><div class="w">
+<div class="k" data-i="k1"></div><h2 data-i="t1"></h2><p class="sub" data-i="d1"></p>
+<div class="grid3" id="skillGrid"></div>
+<div class="tools" style="margin-top:28px" id="toolRow"></div>
+</div></section>
+
+<section id="enp"><div class="w"><div class="plug">
+<div><div class="k" data-i="k2"></div><h2 data-i="t2"></h2><p style="color:var(--m)" data-i="d2"></p>
+<ul id="enpList"></ul>
+<a class="btn p" href="https://enp-studio.github.io/enp/" target="_blank" rel="noopener" data-i="c3"></a></div>
+<div class="badge"><b>ENP</b><small>Editing Power Tools</small><p style="margin-top:14px;color:var(--m);font-size:14px" data-i="d3"></p></div>
+</div></div></section>
+
+<section id="ai"><div class="w">
+<div class="k" data-i="k3"></div><h2 data-i="t3"></h2><p class="sub" data-i="d4"></p>
+<div class="tools" id="aiRow"></div>
+</div></section>
+
+<section id="work"><div class="w">
+<div class="k" data-i="k4"></div><h2 data-i="t4"></h2><p class="sub" data-i="d5"></p>
+<div class="tabs" id="tabs"></div>
+<div class="vids" id="vids"></div>
+<div class="more" id="more"></div>
+</div></section>
+
+<section id="about"><div class="w">
+<div class="k" data-i="k5"></div><h2 data-i="t5"></h2><p class="sub" data-i="d6"></p>
+<div class="tl" id="tl"></div>
+</div></section>
+
+<section id="contact"><div class="w"><div class="contact">
+<div class="k" data-i="k6"></div><h2 data-i="t6"></h2><p style="color:var(--m)" data-i="d7"></p>
+<div class="cta">
+<a class="btn p" href="tel:+201289191494" dir="ltr">+20 128 919 1494</a>
+<a class="btn" href="https://wa.me/201289191494" target="_blank" rel="noopener">WhatsApp</a>
+<a class="btn" href="https://www.instagram.com/amar_enp" target="_blank" rel="noopener">Instagram</a>
+<a class="btn" href="mailto:amarenp618@gmail.com">Email</a>
+</div></div></div></section>
+<footer>© 2026 Amar Enp</footer>
+
+<script>
+/* ===== EDIT HERE: add / remove videos & folders =====
+   id = Google Drive file ID. The file must be shared as "Anyone with the link". */
+var CATS=[
+{k:'high',ar:'أعمال مميزة',en:'High-End',folder:'1FIOtFbb0TkJTajCw2dyB0_Vj8ko96jNU',v:[
+ ['18N3Mwc2gG1Y2dmn98ayKxnB9bh4YFliJ','رحلة التوظيف','The Hiring Journey'],
+ ['1g6dJKIsCOqTxsnPkO7WtKPhZ4qEIuGUq','الميديا باير','The Media Buyer'],
+ ['1QmCUj5ou6DfMTRJvE0O68mWinBrgD40i','العقول','Minds'],
+ ['1UDE-mXAhDB-IdfGU6Q7nCbZX3109RPdO','الشركات العقارية','Real Estate Companies']]},
+{k:'ai',ar:'فيديوهات الذكاء الاصطناعي',en:'AI Video',folder:'1R_QJrI93ImwJxBQyFcnYOzjnf2BdjCno',v:[
+ ['1JUpdkPdR3qPKNm4llKY9N8fhW4adrG1M','فيديو بأسلوب Vox','Vox-Style Video'],
+ ['14ytvkMLEgpTlX27K_xfdLgL89EUiBQgM','فيديو Vox ٢','Vox-Style Video 2'],
+ ['19GNJbWRxcLbUC4Pz9rxSxCqvQP7lxayJ','Drive Thru','Drive Thru'],
+ ['19yWVP4wxMSCBOAdvt6xhmCnBvVUZutoF','Real 1','Real 1'],
+ ['1oy6Cws5ITl8pXmzyBvVJQRpYZONhR8zR','First Fort','First Fort']]},
+{k:'med',ar:'محتوى طبي',en:'Medical',folder:'1qdKoow9P7DZ0G1S1rJxkMwVahn1rdjHU',v:[
+ ['1oZy1-Vqv-ZRS7xa6CcSB0OX2aOSmeKZ4','التحاليل','Lab Tests'],
+ ['1WYsxNujv3uN9wpP4GlhDr7Rj48ISnift','جرعات الكرياتين','Creatine Dosage']]},
+{k:'legal',ar:'محتوى قانوني',en:'Legal',folder:'1pFByaln8JKbRe6cLkJbyPP14Ob6xBx-T',v:[
+ ['1Yi06ZXYuRb-h-siBiTgcnIumE3AGE5WG','ريل قانوني ١','Legal Reel 1'],
+ ['1h0VesNiiMd6RfFXuwywUw8S39jmifKtE','ريل قانوني ٢','Legal Reel 2'],
+ ['1Cib-g9A5MmAe1zchIMZxp_RLW7CTd3Kc','ريل قانوني ٣','Legal Reel 3']]},
+{k:'re',ar:'عقارات',en:'Real Estate',folder:'1Hh7GAgWX29smpdCRPTUBn-1hTCDI8I5a',v:[
+ ['1Zx4VjCcBluvOXm1bmjYOtTQHpfrmiU4C','إعلان عقار','Property Ad'],
+ ['1SMVcsZ_EMpCwaGvrqFid71l5RtqyfoRi','عنوان بيروت','Beirut Tower']]},
+{k:'fash',ar:'أزياء',en:'Fashion',folder:'131A-dtXLoD-zaZ_CMWs5LEW8GgdBITfB',v:[
+ ['1pkpi9lMD41YYsdNbnZafcQyRww0DqLYd','Medmax ١','Medmax 1'],
+ ['1JpCHoe_vg_crWsCsVvWlN_3CAwLGXNPA','Medmax ٢','Medmax 2']]},
+{k:'promo',ar:'إعلانات وبرومو',en:'Promos',folder:'11lGachTMDfVyfy5xRyevp5ge2T3MRhlQ',v:[
+ ['1r-pHxzI3gkUEsCHBHGj96xeScp22cjnj','إعلان مدرسة المستقبل','Future School Ad'],
+ ['1x5GJNpAs6pU3KgAuVR1xfuXtp16HLdC8','محل الحلاقة','Barbershop']]}
+];
+var EXTRA=[{ar:'إنفوجرافيك بالذكاء الاصطناعي',en:'AI Infographics',f:'1OOC-lwGRTUKK8Q4TzZh-mjNtkR3yh9Be'},
+{ar:'كواليس التصوير',en:'Behind the Scenes',f:'1fBDwUNU1wiT9QYCKApPMPl7VMiILMhyy'},
+{ar:'محتوى إسلامي',en:'Islamic Content',f:'1YEYyUOTj7Hi6p5bfleMaiU4HkJ17weiS'}];
+var T={
+ar:{tag:'متاح لفرصة عمل جديدة',h1:'أصنع فيديوهات <em>تبيع</em>، وأدوات تغيّر طريقة المونتاج.',lead:'عمار إنب — مونتير ومصمم ساوند ومحترف فيديو بالذكاء الاصطناعي، ومؤسس بلجن ENP لبرنامج Premiere Pro. شخص واحد بيغطي المونتاج وكتابة المحتوى والتصوير والصوت.',c1:'شوف أعمالي',c2:'تواصل معي',s1:'سنين خبرة',s2:'مجالات عمل',s3:'بلجن من تصميمي',s4:'إنتاج فيديو بالكامل',
+k1:'ماذا أقدم',t1:'مهارات تغطي الإنتاج من الفكرة للتسليم',d1:'مونتاج، ألوان، صوت، موشن، وتصوير، بإحساس شخصي وهدف واحد: نجاح العميل.',
+k2:'مشروعي الخاص',t2:'ENP — أنا المؤسس وصاحب الفكرة',d2:'بلجن لـ Adobe Premiere Pro صممته وبنيته بنفسي ليوفّر ساعات من المونتاج الممل.',c3:'جرّب ENP',d3:'مجاني حتى 1 ديسمبر 2026 • Windows • Premiere Pro 2019–2026',
+k3:'الذكاء الاصطناعي',t3:'متمرس في استخدام الذكاء الاصطناعي في الإنتاج',d4:'أنتج فيديوهات كاملة بالذكاء الاصطناعي بدون ظهور أمام الكاميرا، من السيناريو والصورة والصوت حتى التسليم.',
+k4:'الأعمال',t4:'أعمال مختارة',d5:'اضغط على أي فيديو لتشغيله داخل الموقع.',
+k5:'خلفية',t5:'التعليم والخبرة',d6:'استقرار وظيفي وتفرغ كامل للعمل.',
+k6:'تواصل',t6:'خلّينا نشتغل سوا',d7:'أرحّب بأي فرصة عمل أو تعاون.',more:'تصفح المزيد: ',open:'افتح المجلد',play:'تشغيل',
+nav:['المهارات','ENP','الذكاء الاصطناعي','الأعمال','نبذة','تواصل'],
+skills:[['🎬','مونتاج احترافي','Premiere Pro وAfter Effects وCapCut لكل أنواع الريلز والإعلانات والبودكاست.'],['🎨','تلوين','تصحيح وتدرج لوني يعطي كل فيديو هوية سينمائية.'],['🎧','ساوند ديزاين','معالجة صوت وتصميم صوتي على مستوى احترافي عالٍ.'],['✨','موشن جرافيك','عناصر حركية وتيتلز تدعم القصة وتشد المشاهد.'],['📷','تصوير','خبرة من العمل في ستوديو تصوير احترافي.'],['✍️','محتوى وسيناريو','كتابة وسرد قصصي: شخص واحد بدل فريق.']],
+tools:['Premiere Pro','After Effects','Photoshop','CapCut'],ai:['Claude','Gemini','ChatGPT','ElevenLabs','Google Flow / Veo','Nano Banana Pro'],
+enp:['قص السكوت تلقائيًا','مؤثرات جاهزة','كتابة الترجمة (Captions) تلقائيًا'],
+tl:[['بكالوريوس اللغة العربية','جامعة بنها • 2024'],['خبرة 3+ سنين','طبي • قانوني • عقارات • أزياء • تعليمي • ديني • إعلانات • بودكاست'],['أنهيت الخدمة العسكرية','تفرغ كامل واستقرار'],['العمر 25 سنة','مصر — المنوفية']]},
+en:{tag:'Open to new opportunities',h1:'I make videos that <em>sell</em>, and tools that change how editing works.',lead:'Amar Enp — video editor, sound designer and AI video creator, and founder of ENP, a Premiere Pro plugin. One person covering editing, content writing, filming and sound.',c1:'View my work',c2:'Get in touch',s1:'Years of experience',s2:'Content fields',s3:'Plugin I built',s4:'Full AI video production',
+k1:'What I do',t1:'Skills that cover production from idea to delivery',d1:'Editing, color, sound, motion and filming, with a personal touch and one goal: client success.',
+k2:'My own product',t2:'ENP — I am the founder and creator',d2:'A plugin for Adobe Premiere Pro that I designed and built myself to save hours of tedious editing.',c3:'Try ENP',d3:'Free until Dec 1, 2026 • Windows • Premiere Pro 2019–2026',
+k3:'Artificial intelligence',t3:'Experienced in using AI in production',d4:'I produce complete AI videos without appearing on camera, from script and visuals to voice and final delivery.',
+k4:'Work',t4:'Selected work',d5:'Tap any video to play it right here.',
+k5:'Background',t5:'Education & experience',d6:'Stable, fully available, and ready to commit.',
+k6:'Contact',t6:"Let's work together",d7:'Open to job offers and collaborations.',more:'Browse more: ',open:'Open folder',play:'Play',
+nav:['Skills','ENP','AI','Work','About','Contact'],
+skills:[['🎬','Professional Editing','Premiere Pro, After Effects and CapCut for reels, ads and podcasts.'],['🎨','Color Grading','Correction and grading that gives each video a cinematic identity.'],['🎧','Sound Design','High-end audio cleanup and sound design.'],['✨','Motion Graphics','Animated elements and titles that support the story.'],['📷','Photography','Experience from a professional photo studio.'],['✍️','Content & Storytelling','Writing and narrative: one person instead of a team.']],
+tools:['Premiere Pro','After Effects','Photoshop','CapCut'],ai:['Claude','Gemini','ChatGPT','ElevenLabs','Google Flow / Veo','Nano Banana Pro'],
+enp:['Automatic silence cutting','Ready-made effects','Automatic captions'],
+tl:[['BA in Arabic Language','Benha University • 2024'],['3+ years of experience','Medical • Legal • Real estate • Fashion • Education • Religious • Ads • Podcasts'],['Military service completed','Fully available and stable'],['Age 25','Egypt — Menoufia']]}
+};
+var lang='ar',cur='all',$=function(s){return document.querySelector(s)};
+try{lang=localStorage.getItem('l')||'ar'}catch(e){lang='ar'}
+function H(s){return s}
+function render(){
+ var t=T[lang];document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-i]').forEach(function(e){e[e.hasAttribute('data-html')?'innerHTML':'textContent']=t[e.dataset.i]});
+ $('#lang').textContent=lang=='ar'?'English':'عربي';
+ var ids=['skills','enp','ai','work','about','contact'];
+ $('#nav').innerHTML=ids.map(function(x,i){return '<a href="#'+x+'">'+t.nav[i]+'</a>'}).join('');
+ $('#skillGrid').innerHTML=t.skills.map(function(s){return '<div class="card"><div class="ico">'+s[0]+'</div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div>'}).join('');
+ $('#toolRow').innerHTML=t.tools.map(function(x){return '<span>'+x+'</span>'}).join('');
+ $('#aiRow').innerHTML=t.ai.map(function(x){return '<span>'+x+'</span>'}).join('');
+ $('#enpList').innerHTML=t.enp.map(function(x){return '<li>'+x+'</li>'}).join('');
+ $('#tl').innerHTML=t.tl.map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');
+ var tabs='<button class="chip'+(cur=='all'?' on':'')+'" data-c="all">'+(lang=='ar'?'الكل':'All')+'</button>';
+ CATS.forEach(function(c){tabs+='<button class="chip'+(cur==c.k?' on':'')+'" data-c="'+c.k+'">'+c[lang]+'</button>'});
+ $('#tabs').innerHTML=tabs;
+ var h='';CATS.forEach(function(c){if(cur!='all'&&cur!=c.k)return;c.v.forEach(function(v){
+  h+='<div class="v"><div class="fr" data-id="'+v[0]+'"><div class="play" aria-label="'+t.play+'">▶</div></div><div class="i"><h4>'+(lang=='ar'?v[1]:v[2])+'</h4><small>'+c[lang]+'</small></div></div>'})});
+ $('#vids').innerHTML=h;
+ var m='<span style="color:var(--m);align-self:center">'+t.more+'</span>';
+ CATS.concat(EXTRA.map(function(e){return {ar:e.ar,en:e.en,folder:e.f}})).forEach(function(c){m+='<a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/'+c.folder+'">'+c[lang]+'</a>'});
+ $('#more').innerHTML=m;
+}
+document.addEventListener('click',function(e){
+ var f=e.target.closest('.fr');
+ if(f&&!f.querySelector('iframe')){f.innerHTML='<iframe src="https://drive.google.com/file/d/'+f.dataset.id+'/preview" allow="autoplay;fullscreen" allowfullscreen loading="lazy"></iframe>';return}
+ var c=e.target.closest('.chip');if(c){cur=c.dataset.c;render()}
+});
+$('#lang').onclick=function(){lang=lang=='ar'?'en':'ar';try{localStorage.setItem('l',lang)}catch(e){}render()};
+render();
+</script>
+</body>
+</html>
