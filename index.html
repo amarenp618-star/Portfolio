@@ -2,227 +2,504 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Amar Enp — Video Editor & AI Creator | عمار إنب</title>
-<meta name="description" content="Video editor, motion & sound designer, and AI video creator. Founder of ENP, a Premiere Pro plugin.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amar ENP — مونتير وصانع محتوى</title>
+<meta name="description" content="Amar ENP: مونتير فيديو محترف وصانع محتوى. مونتاج، تلوين، صوت، تصوير وفيديوهات بالذكاء الاصطناعي، ومؤسس بلاجين ENP لبريمير.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0c;--s:#131316;--s2:#1b1b20;--t:#f4f1ea;--m:#9a978f;--a:#f5b942;--l:#2a2a30;--r:18px}
+:root{
+  --ink:#15171c;      /* graphite */
+  --panel:#1d2027;
+  --panel2:#252932;
+  --line:#343944;
+  --paper:#efeae0;    /* warm text */
+  --mute:#a7a79f;
+  --clip:#f0b64a;     /* main clip amber */
+  --teal:#45b8a8;
+  --rose:#e2726a;
+  --sky:#6f9be0;
+  --r:14px;
+  --display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Readex Pro",system-ui,sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{background:var(--bg);color:var(--t);font:400 16px/1.75 'IBM Plex Sans Arabic','Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-html[lang=en] body{font-family:'Space Grotesk','IBM Plex Sans Arabic',system-ui,sans-serif;line-height:1.65}
-a{color:inherit;text-decoration:none}
-.w{max-width:1120px;margin:0 auto;padding:0 20px}
-nav{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--l)}
-nav .w{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.logo{font:700 18px 'Space Grotesk';letter-spacing:.5px}.logo b{color:var(--a)}
-.links{display:flex;gap:22px;font-size:14px;color:var(--m)}
-.links a:hover{color:var(--t)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:99px;font-weight:600;font-size:15px;border:1px solid var(--l);cursor:pointer;background:none;color:var(--t);font-family:inherit;transition:.25s}
-.btn.p{background:var(--a);color:#111;border-color:var(--a)}
-.btn:hover{transform:translateY(-2px);border-color:var(--a)}
-#lang{padding:7px 14px;font-size:13px}
-.hero{padding:90px 0 70px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(245,185,66,.18),transparent 70%);top:-160px;inset-inline-end:-120px}
-.tag{display:inline-block;font-size:13px;color:var(--a);border:1px solid rgba(245,185,66,.4);padding:4px 14px;border-radius:99px;margin-bottom:22px}
-h1{font-size:clamp(38px,7vw,76px);line-height:1.12;font-weight:700;letter-spacing:-1px;max-width:900px}
-h1 em{font-style:normal;color:var(--a)}
-.lead{color:var(--m);font-size:clamp(16px,2.2vw,20px);max-width:660px;margin:22px 0 32px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--l);border:1px solid var(--l);border-radius:var(--r);overflow:hidden;margin-top:56px}
-.stats div{background:var(--s);padding:22px;text-align:center}
-.stats b{display:block;font:700 34px 'Space Grotesk';color:var(--a)}
-.stats span{font-size:13px;color:var(--m)}
-section{padding:80px 0}
-.k{font:500 13px 'Space Grotesk';letter-spacing:2px;color:var(--a);text-transform:uppercase;margin-bottom:10px}
-h2{font-size:clamp(28px,4.5vw,44px);line-height:1.2;margin-bottom:14px;letter-spacing:-.5px}
-.sub{color:var(--m);max-width:640px;margin-bottom:36px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.card{background:var(--s);border:1px solid var(--l);border-radius:var(--r);padding:26px;transition:.3s}
-.card:hover{border-color:rgba(245,185,66,.5);transform:translateY(-4px)}
-.card h3{font-size:19px;margin-bottom:8px}.card p{color:var(--m);font-size:15px}
-.ico{font-size:26px;margin-bottom:12px}
-.plug{background:linear-gradient(135deg,#1c1710,#131316 60%);border:1px solid rgba(245,185,66,.35);border-radius:28px;padding:clamp(26px,5vw,54px);display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
-.plug ul{list-style:none;margin:20px 0 28px;display:grid;gap:10px}
-.plug li:before{content:"✦";color:var(--a);margin-inline-end:10px}
-.badge{background:var(--s2);border:1px solid var(--l);border-radius:20px;padding:28px;text-align:center}
-.badge b{display:block;font:700 44px 'Space Grotesk';letter-spacing:2px;color:var(--a)}
-.badge small{color:var(--m)}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
-.chip{padding:8px 18px;border-radius:99px;border:1px solid var(--l);background:none;color:var(--m);cursor:pointer;font:inherit;font-size:14px;transition:.2s}
-.chip.on{background:var(--t);color:#111;border-color:var(--t)}
-.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.v{background:var(--s);border:1px solid var(--l);border-radius:var(--r);overflow:hidden}
-.fr{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#1d1d23,#0f0f12);display:grid;place-items:center;cursor:pointer}
-.fr iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.play{width:68px;height:68px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:#111;font-size:24px;transition:.25s}
-.fr:hover .play{transform:scale(1.1)}
-.v .i{padding:16px 18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.v h4{font-size:16px;font-weight:600}.v small{color:var(--m);font-size:12px}
-.more{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
-.tl{display:grid;gap:14px}
-.tl div{background:var(--s);border:1px solid var(--l);border-radius:var(--r);padding:20px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.tl b{font-size:17px}.tl span{color:var(--m);font-size:14px}
-.tools{display:flex;flex-wrap:wrap;gap:10px}
-.tools span{padding:8px 16px;border:1px solid var(--l);border-radius:99px;font-size:14px;background:var(--s)}
-.contact{text-align:center;background:var(--s);border:1px solid var(--l);border-radius:32px;padding:60px 24px}
-.contact .cta{justify-content:center;margin-top:26px}
-footer{padding:30px 0;text-align:center;color:var(--m);font-size:13px}
-@media(max-width:760px){.links{display:none}.plug{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}section{padding:56px 0}.hero{padding:56px 0 40px}}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.85;-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--clip);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.35;font-weight:700}
+h2{font-size:clamp(1.6rem,4.4vw,2.4rem);margin-bottom:.4em}
+p.lead{color:var(--mute);max-width:62ch;margin-bottom:2rem}
+section{padding:clamp(56px,9vw,104px) 0;border-top:1px solid var(--line)}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(21,23,28,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-family:var(--display);font-weight:700;letter-spacing:.04em;text-decoration:none;direction:ltr}
+.logo b{color:var(--clip)}
+.nav-r{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;color:var(--paper);font:inherit;font-size:.92rem;padding:8px 18px;border-radius:999px;cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.btn:hover{border-color:var(--paper)}
+.btn.solid{background:var(--clip);border-color:var(--clip);color:#1a1405;font-weight:600}
+.btn.solid:hover{background:#f7c766}
+.navlinks{display:none;gap:22px;font-size:.92rem;color:var(--mute)}
+.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--paper)}
+@media(min-width:900px){.navlinks{display:flex}}
+
+/* hero */
+.ruler{height:26px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;direction:ltr;background:
+  repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 12px) bottom/100% 8px no-repeat,
+  repeating-linear-gradient(90deg,var(--mute) 0 1px,transparent 1px 96px) bottom/100% 16px no-repeat}
+.playhead{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--rose);animation:scrub 2.6s cubic-bezier(.6,.05,.2,1) forwards}
+.playhead::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top-color:var(--rose);border-bottom:0}
+@keyframes scrub{from{left:0}to{left:calc(100% - 2px)}}
+.hero{padding:clamp(36px,6vw,72px) 0 clamp(48px,8vw,90px);border-top:0}
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1fr 1.15fr}}
+.hero h1{font-size:clamp(2rem,6.2vw,3.6rem);margin-bottom:.45em}
+.hero p{color:var(--mute);max-width:46ch;margin-bottom:1.6rem}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.role{display:inline-block;color:var(--clip);font-size:.95rem;margin-bottom:.9rem}
+
+/* player */
+.player{position:relative;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.player img,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.player .ph{position:absolute;inset:0;background:linear-gradient(135deg,var(--panel2),var(--panel))}
+.player button.play{position:absolute;inset:0;width:100%;height:100%;border:0;background:rgba(10,11,14,.28);cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.player button.play:hover{background:rgba(10,11,14,.1)}
+.player .tri{width:68px;height:68px;border-radius:50%;background:var(--clip);display:grid;place-items:center;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.player .tri::after{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #1a1405;margin-left:4px}
+.openlink{display:inline-block;margin-top:8px;font-size:.84rem;color:var(--mute)}
+.openlink:hover{color:var(--paper)}
+
+/* proof strip */
+.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media(min-width:800px){.proof{grid-template-columns:repeat(4,1fr)}}
+.proof div{padding:20px 22px;border-inline-start:1px solid var(--line);border-top:1px solid var(--line);margin:-1px 0 0 -1px}
+.proof strong{display:block;font-family:var(--display);font-size:1.15rem;margin-bottom:2px}
+.proof span{color:var(--mute);font-size:.9rem;line-height:1.6;display:block}
+
+/* why */
+.rows{display:grid;gap:0}
+.row{display:grid;gap:6px 28px;padding:26px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0;padding-top:0}
+@media(min-width:800px){.row{grid-template-columns:260px 1fr}}
+.row h3{font-size:1.15rem;display:flex;gap:12px;align-items:flex-start}
+.row h3::before{content:"";flex:none;width:10px;height:22px;border-radius:3px;margin-top:6px;background:var(--c,var(--clip))}
+.row p{color:var(--mute)}
+
+/* work */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--mute);font:inherit;font-size:.92rem;padding:7px 18px;border-radius:999px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.chip i{width:9px;height:9px;border-radius:2px;background:var(--c,var(--clip))}
+.chip[aria-pressed=true]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
+.card h3{font-size:1.05rem;margin:14px 0 4px}
+.card p{color:var(--mute);font-size:.93rem;line-height:1.7}
+.tag{font-size:.8rem;color:var(--c,var(--clip))}
+.more{margin-top:34px;padding:26px;border:1px dashed var(--line);border-radius:var(--r);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.more p{color:var(--mute);max-width:56ch}
+
+/* ai + plugin */
+.split{display:grid;gap:36px}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:1.2rem 0}
+.tools span{border:1px solid var(--line);border-radius:8px;padding:3px 12px;font-size:.88rem;direction:ltr}
+.steps{list-style:none;counter-reset:s;display:grid;gap:14px;margin-top:1rem}
+.steps li{counter-increment:s;display:flex;gap:14px;color:var(--mute)}
+.steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--clip);color:var(--clip);display:grid;place-items:center;font-size:.9rem;font-family:var(--display)}
+.steps b{color:var(--paper);font-weight:600}
+.plugin{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:clamp(24px,4vw,40px)}
+.plugin ul{list-style:none;display:grid;gap:8px;margin:1.2rem 0 1.6rem;color:var(--mute)}
+.plugin li{display:flex;gap:10px}
+.plugin li::before{content:"";flex:none;width:8px;height:8px;margin-top:11px;background:var(--teal);border-radius:2px}
+.badge{display:inline-block;background:var(--teal);color:#06201c;font-weight:600;font-size:.82rem;padding:2px 12px;border-radius:999px;margin-bottom:12px}
+
+/* toolbox */
+.kit{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.kit div{padding:20px 22px;background:var(--panel);border-radius:var(--r);border-top:3px solid var(--c)}
+.kit h3{font-size:1.02rem;margin-bottom:4px;direction:ltr;text-align:start}
+.kit p{color:var(--mute);font-size:.92rem;line-height:1.7}
+
+/* contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(1.9rem,6vw,3.2rem)}
+.contact p.lead{margin-inline:auto}
+.contact .cta{justify-content:center}
+.meta{margin-top:28px;color:var(--mute);font-size:.92rem;direction:ltr}
+footer{padding:26px 0;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem;text-align:center}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.playhead{display:none}}
 </style>
 </head>
 <body>
-<nav><div class="w"><a href="#top" class="logo">AMAR<b>.</b>ENP</a>
-<div class="links" id="nav"></div>
-<button class="btn" id="lang">English</button></div></nav>
 
-<header class="hero" id="top"><div class="w">
-<span class="tag" data-i="tag"></span>
-<h1 data-i="h1" data-html></h1>
-<p class="lead" data-i="lead"></p>
-<div class="cta"><a class="btn p" href="#work" data-i="c1"></a><a class="btn" href="#contact" data-i="c2"></a></div>
-<div class="stats">
-<div><b>3+</b><span data-i="s1"></span></div>
-<div><b>9</b><span data-i="s2"></span></div>
-<div><b>ENP</b><span data-i="s3"></span></div>
-<div><b>AI</b><span data-i="s4"></span></div>
-</div></div></header>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">AMAR<b>.</b>ENP</a>
+    <nav class="navlinks">
+      <a href="#work" data-i="nav_work"></a>
+      <a href="#ai" data-i="nav_ai"></a>
+      <a href="#plugin" data-i="nav_plugin"></a>
+      <a href="#contact" data-i="nav_contact"></a>
+    </nav>
+    <div class="nav-r">
+      <button class="btn" id="lang" type="button" aria-label="Switch language">English</button>
+    </div>
+  </div>
+</header>
 
-<section id="skills"><div class="w">
-<div class="k" data-i="k1"></div><h2 data-i="t1"></h2><p class="sub" data-i="d1"></p>
-<div class="grid3" id="skillGrid"></div>
-<div class="tools" style="margin-top:28px" id="toolRow"></div>
-</div></section>
+<main id="top">
+<div class="ruler" aria-hidden="true"><div class="playhead"></div></div>
 
-<section id="enp"><div class="w"><div class="plug">
-<div><div class="k" data-i="k2"></div><h2 data-i="t2"></h2><p style="color:var(--m)" data-i="d2"></p>
-<ul id="enpList"></ul>
-<a class="btn p" href="https://enp-studio.github.io/enp/" target="_blank" rel="noopener" data-i="c3"></a></div>
-<div class="badge"><b>ENP</b><small>Editing Power Tools</small><p style="margin-top:14px;color:var(--m);font-size:14px" data-i="d3"></p></div>
-</div></div></section>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="role" data-i="role"></span>
+      <h1 data-i="h1"></h1>
+      <p data-i="hero_p"></p>
+      <div class="cta">
+        <a class="btn solid" id="wa1" href="https://wa.me/201289191494" target="_blank" rel="noopener" data-i="cta_wa"></a>
+        <a class="btn" href="#work" data-i="cta_work"></a>
+      </div>
+    </div>
+    <div id="heroPlayer"></div>
+  </div>
+</section>
 
-<section id="ai"><div class="w">
-<div class="k" data-i="k3"></div><h2 data-i="t3"></h2><p class="sub" data-i="d4"></p>
-<div class="tools" id="aiRow"></div>
-</div></section>
+<section style="padding-top:0;border-top:0">
+  <div class="wrap">
+    <div class="proof">
+      <div><strong data-i="p1t"></strong><span data-i="p1d"></span></div>
+      <div><strong data-i="p2t"></strong><span data-i="p2d"></span></div>
+      <div><strong data-i="p3t"></strong><span data-i="p3d"></span></div>
+      <div><strong data-i="p4t"></strong><span data-i="p4d"></span></div>
+    </div>
+  </div>
+</section>
 
-<section id="work"><div class="w">
-<div class="k" data-i="k4"></div><h2 data-i="t4"></h2><p class="sub" data-i="d5"></p>
-<div class="tabs" id="tabs"></div>
-<div class="vids" id="vids"></div>
-<div class="more" id="more"></div>
-</div></section>
+<section id="why">
+  <div class="wrap">
+    <h2 data-i="why_h"></h2>
+    <p class="lead" data-i="why_lead"></p>
+    <div class="rows">
+      <div class="row" style="--c:var(--clip)"><h3 data-i="w1t"></h3><p data-i="w1d"></p></div>
+      <div class="row" style="--c:var(--teal)"><h3 data-i="w2t"></h3><p data-i="w2d"></p></div>
+      <div class="row" style="--c:var(--rose)"><h3 data-i="w3t"></h3><p data-i="w3d"></p></div>
+      <div class="row" style="--c:var(--sky)"><h3 data-i="w4t"></h3><p data-i="w4d"></p></div>
+    </div>
+  </div>
+</section>
 
-<section id="about"><div class="w">
-<div class="k" data-i="k5"></div><h2 data-i="t5"></h2><p class="sub" data-i="d6"></p>
-<div class="tl" id="tl"></div>
-</div></section>
+<section id="work">
+  <div class="wrap">
+    <h2 data-i="work_h"></h2>
+    <p class="lead" data-i="work_lead"></p>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+    <div class="more">
+      <p data-i="more_p"></p>
+      <a class="btn solid" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/19rgrqVn1AwzzNhmfT3SfPOc2UkcDLxem" data-i="more_btn"></a>
+    </div>
+  </div>
+</section>
 
-<section id="contact"><div class="w"><div class="contact">
-<div class="k" data-i="k6"></div><h2 data-i="t6"></h2><p style="color:var(--m)" data-i="d7"></p>
-<div class="cta">
-<a class="btn p" href="tel:+201289191494" dir="ltr">+20 128 919 1494</a>
-<a class="btn" href="https://wa.me/201289191494" target="_blank" rel="noopener">WhatsApp</a>
-<a class="btn" href="https://www.instagram.com/amar_enp" target="_blank" rel="noopener">Instagram</a>
-<a class="btn" href="mailto:amarenp618@gmail.com">Email</a>
-</div></div></div></section>
-<footer>© 2026 Amar Enp</footer>
+<section id="ai">
+  <div class="wrap split">
+    <div>
+      <h2 data-i="ai_h"></h2>
+      <p class="lead" data-i="ai_lead"></p>
+      <ol class="steps">
+        <li><span><b data-i="s1b"></b> <span data-i="s1d"></span></span></li>
+        <li><span><b data-i="s2b"></b> <span data-i="s2d"></span></span></li>
+        <li><span><b data-i="s3b"></b> <span data-i="s3d"></span></span></li>
+      </ol>
+    </div>
+    <div>
+      <h3 data-i="tools_h"></h3>
+      <div class="tools"><span>Claude</span><span>Gemini</span><span>ChatGPT</span><span>ElevenLabs</span><span>Google Flow</span><span>Veo</span><span>Nano Banana Pro</span><span>Higgsfield</span><span>Kling</span><span>Runway</span><span>Magnific</span></div>
+      <p class="lead" style="margin-bottom:0" data-i="tools_p"></p>
+    </div>
+  </div>
+</section>
+
+<section id="plugin">
+  <div class="wrap">
+    <div class="plugin">
+      <span class="badge" data-i="pl_badge"></span>
+      <h2 data-i="pl_h"></h2>
+      <p class="lead" style="margin-bottom:0" data-i="pl_lead"></p>
+      <ul>
+        <li data-i="pl1"></li>
+        <li data-i="pl2"></li>
+        <li data-i="pl3"></li>
+        <li data-i="pl4"></li>
+      </ul>
+      <a class="btn solid" href="https://enp-studio.github.io/enp/" target="_blank" rel="noopener" data-i="pl_btn"></a>
+    </div>
+  </div>
+</section>
+
+<section id="kit">
+  <div class="wrap">
+    <h2 data-i="kit_h"></h2>
+    <p class="lead" data-i="kit_lead"></p>
+    <div class="kit">
+      <div style="--c:var(--sky)"><h3>Premiere Pro</h3><p data-i="k1"></p></div>
+      <div style="--c:var(--rose)"><h3>After Effects</h3><p data-i="k2"></p></div>
+      <div style="--c:var(--clip)"><h3 data-i="k3t"></h3><p data-i="k3"></p></div>
+      <div style="--c:var(--teal)"><h3 data-i="k4t"></h3><p data-i="k4"></p></div>
+      <div style="--c:var(--sky)"><h3 data-i="k5t"></h3><p data-i="k5"></p></div>
+      <div style="--c:var(--rose)"><h3 data-i="k6t"></h3><p data-i="k6"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <h2 data-i="st_h"></h2>
+    <div class="rows" style="margin-top:1.6rem">
+      <div class="row" style="--c:var(--clip)"><h3 data-i="st1t"></h3><p data-i="st1d"></p></div>
+      <div class="row" style="--c:var(--teal)"><h3 data-i="st2t"></h3><p data-i="st2d"></p></div>
+      <div class="row" style="--c:var(--rose)"><h3 data-i="st3t"></h3><p data-i="st3d"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2 data-i="ct_h"></h2>
+    <p class="lead" data-i="ct_p"></p>
+    <div class="cta">
+      <a class="btn solid" href="https://wa.me/201289191494" target="_blank" rel="noopener" data-i="cta_wa"></a>
+      <a class="btn" href="https://www.instagram.com/amar_enp" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn" href="mailto:amarenp618@gmail.com">amarenp618@gmail.com</a>
+    </div>
+    <p class="meta">+20 128 919 1494</p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Amar ENP</div></footer>
 
 <script>
-/* ===== EDIT HERE: add / remove videos & folders =====
-   id = Google Drive file ID. The file must be shared as "Anyone with the link". */
-var CATS=[
-{k:'high',ar:'أعمال مميزة',en:'High-End',folder:'1FIOtFbb0TkJTajCw2dyB0_Vj8ko96jNU',v:[
- ['18N3Mwc2gG1Y2dmn98ayKxnB9bh4YFliJ','رحلة التوظيف','The Hiring Journey'],
- ['1g6dJKIsCOqTxsnPkO7WtKPhZ4qEIuGUq','الميديا باير','The Media Buyer'],
- ['1QmCUj5ou6DfMTRJvE0O68mWinBrgD40i','العقول','Minds'],
- ['1UDE-mXAhDB-IdfGU6Q7nCbZX3109RPdO','الشركات العقارية','Real Estate Companies']]},
-{k:'ai',ar:'فيديوهات الذكاء الاصطناعي',en:'AI Video',folder:'1R_QJrI93ImwJxBQyFcnYOzjnf2BdjCno',v:[
- ['1JUpdkPdR3qPKNm4llKY9N8fhW4adrG1M','فيديو بأسلوب Vox','Vox-Style Video'],
- ['14ytvkMLEgpTlX27K_xfdLgL89EUiBQgM','فيديو Vox ٢','Vox-Style Video 2'],
- ['19GNJbWRxcLbUC4Pz9rxSxCqvQP7lxayJ','Drive Thru','Drive Thru'],
- ['19yWVP4wxMSCBOAdvt6xhmCnBvVUZutoF','Real 1','Real 1'],
- ['1oy6Cws5ITl8pXmzyBvVJQRpYZONhR8zR','First Fort','First Fort']]},
-{k:'med',ar:'محتوى طبي',en:'Medical',folder:'1qdKoow9P7DZ0G1S1rJxkMwVahn1rdjHU',v:[
- ['1oZy1-Vqv-ZRS7xa6CcSB0OX2aOSmeKZ4','التحاليل','Lab Tests'],
- ['1WYsxNujv3uN9wpP4GlhDr7Rj48ISnift','جرعات الكرياتين','Creatine Dosage']]},
-{k:'legal',ar:'محتوى قانوني',en:'Legal',folder:'1pFByaln8JKbRe6cLkJbyPP14Ob6xBx-T',v:[
- ['1Yi06ZXYuRb-h-siBiTgcnIumE3AGE5WG','ريل قانوني ١','Legal Reel 1'],
- ['1h0VesNiiMd6RfFXuwywUw8S39jmifKtE','ريل قانوني ٢','Legal Reel 2'],
- ['1Cib-g9A5MmAe1zchIMZxp_RLW7CTd3Kc','ريل قانوني ٣','Legal Reel 3']]},
-{k:'re',ar:'عقارات',en:'Real Estate',folder:'1Hh7GAgWX29smpdCRPTUBn-1hTCDI8I5a',v:[
- ['1Zx4VjCcBluvOXm1bmjYOtTQHpfrmiU4C','إعلان عقار','Property Ad'],
- ['1SMVcsZ_EMpCwaGvrqFid71l5RtqyfoRi','عنوان بيروت','Beirut Tower']]},
-{k:'fash',ar:'أزياء',en:'Fashion',folder:'131A-dtXLoD-zaZ_CMWs5LEW8GgdBITfB',v:[
- ['1pkpi9lMD41YYsdNbnZafcQyRww0DqLYd','Medmax ١','Medmax 1'],
- ['1JpCHoe_vg_crWsCsVvWlN_3CAwLGXNPA','Medmax ٢','Medmax 2']]},
-{k:'promo',ar:'إعلانات وبرومو',en:'Promos',folder:'11lGachTMDfVyfy5xRyevp5ge2T3MRhlQ',v:[
- ['1r-pHxzI3gkUEsCHBHGj96xeScp22cjnj','إعلان مدرسة المستقبل','Future School Ad'],
- ['1x5GJNpAs6pU3KgAuVR1xfuXtp16HLdC8','محل الحلاقة','Barbershop']]}
-];
-var EXTRA=[{ar:'إنفوجرافيك بالذكاء الاصطناعي',en:'AI Infographics',f:'1OOC-lwGRTUKK8Q4TzZh-mjNtkR3yh9Be'},
-{ar:'كواليس التصوير',en:'Behind the Scenes',f:'1fBDwUNU1wiT9QYCKApPMPl7VMiILMhyy'},
-{ar:'محتوى إسلامي',en:'Islamic Content',f:'1YEYyUOTj7Hi6p5bfleMaiU4HkJ17weiS'}];
-var T={
-ar:{tag:'متاح لفرصة عمل جديدة',h1:'أصنع فيديوهات <em>تبيع</em>، وأدوات تغيّر طريقة المونتاج.',lead:'عمار إنب — مونتير ومصمم ساوند ومحترف فيديو بالذكاء الاصطناعي، ومؤسس بلجن ENP لبرنامج Premiere Pro. شخص واحد بيغطي المونتاج وكتابة المحتوى والتصوير والصوت.',c1:'شوف أعمالي',c2:'تواصل معي',s1:'سنين خبرة',s2:'مجالات عمل',s3:'بلجن من تصميمي',s4:'إنتاج فيديو بالكامل',
-k1:'ماذا أقدم',t1:'مهارات تغطي الإنتاج من الفكرة للتسليم',d1:'مونتاج، ألوان، صوت، موشن، وتصوير، بإحساس شخصي وهدف واحد: نجاح العميل.',
-k2:'مشروعي الخاص',t2:'ENP — أنا المؤسس وصاحب الفكرة',d2:'بلجن لـ Adobe Premiere Pro صممته وبنيته بنفسي ليوفّر ساعات من المونتاج الممل.',c3:'جرّب ENP',d3:'مجاني حتى 1 ديسمبر 2026 • Windows • Premiere Pro 2019–2026',
-k3:'الذكاء الاصطناعي',t3:'متمرس في استخدام الذكاء الاصطناعي في الإنتاج',d4:'أنتج فيديوهات كاملة بالذكاء الاصطناعي بدون ظهور أمام الكاميرا، من السيناريو والصورة والصوت حتى التسليم.',
-k4:'الأعمال',t4:'أعمال مختارة',d5:'اضغط على أي فيديو لتشغيله داخل الموقع.',
-k5:'خلفية',t5:'التعليم والخبرة',d6:'استقرار وظيفي وتفرغ كامل للعمل.',
-k6:'تواصل',t6:'خلّينا نشتغل سوا',d7:'أرحّب بأي فرصة عمل أو تعاون.',more:'تصفح المزيد: ',open:'افتح المجلد',play:'تشغيل',
-nav:['المهارات','ENP','الذكاء الاصطناعي','الأعمال','نبذة','تواصل'],
-skills:[['🎬','مونتاج احترافي','Premiere Pro وAfter Effects وCapCut لكل أنواع الريلز والإعلانات والبودكاست.'],['🎨','تلوين','تصحيح وتدرج لوني يعطي كل فيديو هوية سينمائية.'],['🎧','ساوند ديزاين','معالجة صوت وتصميم صوتي على مستوى احترافي عالٍ.'],['✨','موشن جرافيك','عناصر حركية وتيتلز تدعم القصة وتشد المشاهد.'],['📷','تصوير','خبرة من العمل في ستوديو تصوير احترافي.'],['✍️','محتوى وسيناريو','كتابة وسرد قصصي: شخص واحد بدل فريق.']],
-tools:['Premiere Pro','After Effects','Photoshop','CapCut'],ai:['Claude','Gemini','ChatGPT','ElevenLabs','Google Flow / Veo','Nano Banana Pro'],
-enp:['قص السكوت تلقائيًا','مؤثرات جاهزة','كتابة الترجمة (Captions) تلقائيًا'],
-tl:[['بكالوريوس اللغة العربية','جامعة بنها • 2024'],['خبرة 3+ سنين','طبي • قانوني • عقارات • أزياء • تعليمي • ديني • إعلانات • بودكاست'],['أنهيت الخدمة العسكرية','تفرغ كامل واستقرار'],['العمر 25 سنة','مصر — المنوفية']]},
-en:{tag:'Open to new opportunities',h1:'I make videos that <em>sell</em>, and tools that change how editing works.',lead:'Amar Enp — video editor, sound designer and AI video creator, and founder of ENP, a Premiere Pro plugin. One person covering editing, content writing, filming and sound.',c1:'View my work',c2:'Get in touch',s1:'Years of experience',s2:'Content fields',s3:'Plugin I built',s4:'Full AI video production',
-k1:'What I do',t1:'Skills that cover production from idea to delivery',d1:'Editing, color, sound, motion and filming, with a personal touch and one goal: client success.',
-k2:'My own product',t2:'ENP — I am the founder and creator',d2:'A plugin for Adobe Premiere Pro that I designed and built myself to save hours of tedious editing.',c3:'Try ENP',d3:'Free until Dec 1, 2026 • Windows • Premiere Pro 2019–2026',
-k3:'Artificial intelligence',t3:'Experienced in using AI in production',d4:'I produce complete AI videos without appearing on camera, from script and visuals to voice and final delivery.',
-k4:'Work',t4:'Selected work',d5:'Tap any video to play it right here.',
-k5:'Background',t5:'Education & experience',d6:'Stable, fully available, and ready to commit.',
-k6:'Contact',t6:"Let's work together",d7:'Open to job offers and collaborations.',more:'Browse more: ',open:'Open folder',play:'Play',
-nav:['Skills','ENP','AI','Work','About','Contact'],
-skills:[['🎬','Professional Editing','Premiere Pro, After Effects and CapCut for reels, ads and podcasts.'],['🎨','Color Grading','Correction and grading that gives each video a cinematic identity.'],['🎧','Sound Design','High-end audio cleanup and sound design.'],['✨','Motion Graphics','Animated elements and titles that support the story.'],['📷','Photography','Experience from a professional photo studio.'],['✍️','Content & Storytelling','Writing and narrative: one person instead of a team.']],
-tools:['Premiere Pro','After Effects','Photoshop','CapCut'],ai:['Claude','Gemini','ChatGPT','ElevenLabs','Google Flow / Veo','Nano Banana Pro'],
-enp:['Automatic silence cutting','Ready-made effects','Automatic captions'],
-tl:[['BA in Arabic Language','Benha University • 2024'],['3+ years of experience','Medical • Legal • Real estate • Fashion • Education • Religious • Ads • Podcasts'],['Military service completed','Fully available and stable'],['Age 25','Egypt — Menoufia']]}
+/* ============ بيانات الأعمال — عدّل هنا بس ============
+   id = الجزء الموجود في رابط Drive بين /d/ و /view
+   cat: high | ai | legal | medical | islamic | fashion | realestate | promo
+   لازم الفيديو يكون مشاركته "أي شخص معه الرابط" عشان يشتغل
+*/
+var CATS = {
+  high:{c:"#f0b64a",ar:"أعمال مميزة",en:"Featured"},
+  ai:{c:"#45b8a8",ar:"فيديوهات الذكاء الاصطناعي",en:"AI Videos"},
+  legal:{c:"#6f9be0",ar:"محتوى قانوني",en:"Legal"},
+  medical:{c:"#e2726a",ar:"محتوى طبي",en:"Medical"},
+  islamic:{c:"#45b8a8",ar:"محتوى ديني",en:"Islamic"},
+  fashion:{c:"#e2726a",ar:"أزياء",en:"Fashion"},
+  realestate:{c:"#6f9be0",ar:"عقارات",en:"Real estate"},
+  promo:{c:"#f0b64a",ar:"إعلانات وبرومو",en:"Promos"}
 };
-var lang='ar',cur='all',$=function(s){return document.querySelector(s)};
-try{lang=localStorage.getItem('l')||'ar'}catch(e){lang='ar'}
-function H(s){return s}
-function render(){
- var t=T[lang];document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
- document.querySelectorAll('[data-i]').forEach(function(e){e[e.hasAttribute('data-html')?'innerHTML':'textContent']=t[e.dataset.i]});
- $('#lang').textContent=lang=='ar'?'English':'عربي';
- var ids=['skills','enp','ai','work','about','contact'];
- $('#nav').innerHTML=ids.map(function(x,i){return '<a href="#'+x+'">'+t.nav[i]+'</a>'}).join('');
- $('#skillGrid').innerHTML=t.skills.map(function(s){return '<div class="card"><div class="ico">'+s[0]+'</div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div>'}).join('');
- $('#toolRow').innerHTML=t.tools.map(function(x){return '<span>'+x+'</span>'}).join('');
- $('#aiRow').innerHTML=t.ai.map(function(x){return '<span>'+x+'</span>'}).join('');
- $('#enpList').innerHTML=t.enp.map(function(x){return '<li>'+x+'</li>'}).join('');
- $('#tl').innerHTML=t.tl.map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');
- var tabs='<button class="chip'+(cur=='all'?' on':'')+'" data-c="all">'+(lang=='ar'?'الكل':'All')+'</button>';
- CATS.forEach(function(c){tabs+='<button class="chip'+(cur==c.k?' on':'')+'" data-c="'+c.k+'">'+c[lang]+'</button>'});
- $('#tabs').innerHTML=tabs;
- var h='';CATS.forEach(function(c){if(cur!='all'&&cur!=c.k)return;c.v.forEach(function(v){
-  h+='<div class="v"><div class="fr" data-id="'+v[0]+'"><div class="play" aria-label="'+t.play+'">▶</div></div><div class="i"><h4>'+(lang=='ar'?v[1]:v[2])+'</h4><small>'+c[lang]+'</small></div></div>'})});
- $('#vids').innerHTML=h;
- var m='<span style="color:var(--m);align-self:center">'+t.more+'</span>';
- CATS.concat(EXTRA.map(function(e){return {ar:e.ar,en:e.en,folder:e.f}})).forEach(function(c){m+='<a class="btn" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/'+c.folder+'">'+c[lang]+'</a>'});
- $('#more').innerHTML=m;
+var WORKS = [
+  {id:"1g6dJKIsCOqTxsnPkO7WtKPhZ4qEIuGUq",cat:"high",
+   ar:["عمل متكامل — الفيديو الأول","من الفكرة للمنتج النهائي: كتابة، إضاءة، تصوير، تلقين ومونتاج بإيدي."],
+   en:["End-to-end project — Video 1","From idea to final cut: script, lighting, filming, talent direction and editing, all by me."]},
+  {id:"1QmCUj5ou6DfMTRJvE0O68mWinBrgD40i",cat:"high",
+   ar:["عمل متكامل — الفيديو الثاني","إنتاج كامل من الصفر لحد التسليم النهائي."],
+   en:["End-to-end project — Video 2","A full production from zero to final delivery."]},
+  {id:"1UDE-mXAhDB-IdfGU6Q7nCbZX3109RPdO",cat:"high",
+   ar:["عمل متكامل — الفيديو الثالث","سيناريو وتصوير ومونتاج وتلوين وصوت في فيديو واحد."],
+   en:["End-to-end project — Video 3","Script, filming, editing, color and sound in a single video."]},
+  {id:"19yWVP4wxMSCBOAdvt6xhmCnBvVUZutoF",cat:"ai",
+   ar:["فيديو بالذكاء الاصطناعي — 1","إنتاج كامل بالـ AI من الصورة للفيديو للصوت."],
+   en:["AI-generated video — 1","Full AI production: image, video and voice."]},
+  {id:"1gpurUo2QLZnB_vPi6gQBDMOzZIhA2sr8",cat:"ai",
+   ar:["فيديو بالذكاء الاصطناعي — 2","شخصيات ثابتة المظهر ومشاهد متسقة."],
+   en:["AI-generated video — 2","Consistent characters and coherent scenes."]},
+  {id:"1Yi06ZXYuRb-h-siBiTgcnIumE3AGE5WG",cat:"legal",
+   ar:["محتوى قانوني","مونتاج وصوت لمحتوى قانوني واضح ومريح للمشاهد."],
+   en:["Legal content","Editing and sound for clear, easy-to-watch legal content."]}
+];
+
+/* ============ النصوص ============ */
+var T = {
+ar:{
+ nav_work:"الأعمال",nav_ai:"الذكاء الاصطناعي",nav_plugin:"بلاجين ENP",nav_contact:"تواصل",
+ role:"مونتير فيديو وصانع محتوى",
+ h1:"شخص واحد بيعمل شغل فريق كامل.",
+ hero_p:"بكتب الفكرة، وبصوّر، وبعمل المونتاج والتلوين والصوت، وبنتج فيديوهات كاملة بالذكاء الاصطناعي. وأنا اللي بنيت بلاجين ENP لبريمير.",
+ cta_wa:"كلمني على واتساب",cta_work:"شوف الأعمال",
+ p1t:"+3 سنين",p1d:"مونتاج احترافي كاعتماد أساسي، فوق 6 سنين خبرة إجمالية",
+ p2t:"+7 مجالات",p2d:"طبي، قانوني، ديني، تعليمي، عقارات، أزياء، إعلانات وبودكاست",
+ p3t:"مؤسس ENP",p3d:"بلاجين بريميير بنيته بنفسي والناس بتستخدمه",
+ p4t:"خدمة عسكرية منتهية",p4d:"استقرار والتزام كامل بالدوام",
+ why_h:"ليه أنا الاختيار المناسب؟",why_lead:"لأن الشركة بتوظف واحد، وبتاخد مونتاج وتصوير وكتابة وصوت وذكاء اصطناعي في شخص واحد.",
+ w1t:"مرونة تغطي أكتر من وظيفة",w1d:"مونتير، مصوّر، كاتب محتوى وصانع فيديوهات AI. مفيش خطوة في الفيديو محتاجة تستنى حد تاني، من الفكرة لحد النسخة النهائية.",
+ w2t:"بنقذ الفيديو الصعب",w2d:"جالي فيديو مش متصور لوج، الإضاءة ضعيفة والصوت سيئ جدًا. عدّلت التلوين وضبطت الصوت من الميكسر وطلع بجودة عالية.",
+ w3t:"شغل كبير مش بس ريلز",w3d:"اشتغلت على مشاريع ضخمة زي افتتاح مدرسة بكاميرا فوجي، وحلقات برامج تعليمية ودينية وقانونية، وكنت بتصورها وأدّيها اللوج والتلوين.",
+ w4t:"بفكر في نجاحك الأول",w4d:"بنظّم الملفات قبل ما أبدأ، وبقسّم الحلقات في سيكوانس لوحدها، وبسلّم الشغل مرتب وجاهز لأي فريق يفتحه بعدي.",
+ work_h:"أعمال بتتكلم عن نفسها",work_lead:"اضغط على أي فيديو وشغّله هنا في الصفحة. الأعمال المميزة صوّرتها وكتبتها ومنتجتها بالكامل.",
+ more_p:"في مجلدات إضافية لكل مجال: طبي، قانوني، ديني، عقارات، أزياء وإعلانات.",more_btn:"كل الأعمال على Drive",
+ ai_h:"فيديوهات الذكاء الاصطناعي من الألف للياء",
+ ai_lead:"بنتج فيديوهات كاملة من غير ما حد يظهر قدام الكاميرا، بشخصيات ثابتة وصوت وموشن.",
+ s1b:"الصور:",s1d:"بولّد الصور بـ Nano Banana Pro عشان تطلع كتير وبجودة عالية.",
+ s2b:"الفيديو:",s2d:"بحوّلها لفيديو بـ Flow وVeo وKling وRunway حسب الحاجة.",
+ s3b:"الصوت والموشن:",s3d:"الصوت من ElevenLabs، والموشن جرافيك بكتبه بالكود عن طريق Claude.",
+ tools_h:"الأدوات اللي بشتغل بيها",
+ tools_p:"البرومبتات بكتبها بنفسي مع Gemini وHiggsfield، وبكتب الكود مع Claude. وبختار الأداة المناسبة حسب ميزانية العميل.",
+ pl_badge:"من تطويري",pl_h:"ENP — بلاجين بريميير بنيته بإيدي",
+ pl_lead:"مش بس بستخدم الأدوات، أنا بعملها. ENP بلاجين لبريمير بروفر بيوفّر وقت المونتاج، وبشتغل عليه كل يوم.",
+ pl1:"قص السكوت أوتوماتيك",pl2:"مكتبة تأثيرات جاهزة",pl3:"كابشن أوتوماتيك",pl4:"في مرحلة الاختبار (Beta) وبيتطور باستمرار",
+ pl_btn:"شوف البلاجين",
+ kit_h:"الأدوات والمهارات",kit_lead:"بريميير هو أداتي الأساسية، وباقي الأدوات بستخدمها حسب احتياج المشروع.",
+ k1:"أداتي الأساسية، وصلت فيها لمرحلة إني بنيت بلاجين حقيقي لها.",
+ k2:"بستخدمه بشكل انتقائي حسب المشروع، لأن بريميير والبلاجين بتاعتي بيغطّوا أغلب الشغل.",
+ k3t:"التلوين",k3:"تصحيح وتلوين لقطات اللوج وتحويل الخام لصورة سينمائية.",
+ k4t:"هندسة الصوت",k4:"مستوى قوي في تنظيف الصوت والميكس وتصميم الصوت (Sound Design).",
+ k5t:"CapCut وPhotoshop",k5:"للريلز السريعة والتصميمات والتعديل على الصور.",
+ k6t:"كل أنواع الريلز",k6:"محتوى سوشيال بإيقاع سريع وكابشن وانتقالات تثبّت المشاهد.",
+ st_h:"أكتر من مونتير",
+ st1t:"التصوير والإضاءة",st1d:"اشتغلت فترة في ستوديو تصوير احترافي، وعندي خلفية قوية في توزيع الإضاءة وابتكار زوايا جديدة واختيار إضاءة تناسب كل مشهد وتخدم الرسالة.",
+ st2t:"الكتابة وسرد القصة",st2d:"مهارات في كتابة المحتوى والـ Storytelling، وبدرس اللغة العربية (بكالوريوس آداب لغة عربية من جامعة بنها 2024)، فبنص سليم من غير أخطاء.",
+ st3t:"التزام واستقرار",st3d:"أنهيت الخدمة العسكرية، ومتاح للعمل بدوام كامل، سواء من مقر الشركة أو عن بُعد.",
+ ct_h:"خلّينا نشتغل مع بعض",ct_p:"ابعتلي على واتساب وأرد عليك في أسرع وقت."
+},
+en:{
+ nav_work:"Work",nav_ai:"AI",nav_plugin:"ENP Plugin",nav_contact:"Contact",
+ role:"Video editor & content creator",
+ h1:"One person doing the work of a full team.",
+ hero_p:"I write the idea, shoot it, edit, grade and mix it, and produce complete AI videos. I also built the ENP plugin for Premiere Pro.",
+ cta_wa:"Message me on WhatsApp",cta_work:"See the work",
+ p1t:"3+ years",p1d:"Professional editing as my main job, 6+ years of experience overall",
+ p2t:"7+ fields",p2d:"Medical, legal, religious, educational, real estate, fashion, ads and podcasts",
+ p3t:"Founder of ENP",p3d:"A Premiere Pro plugin I built myself and others use",
+ p4t:"Military service completed",p4d:"Stable and fully committed to full-time work",
+ why_h:"Why I'm the right hire",why_lead:"You hire one person and get editing, filming, writing, sound and AI production in one.",
+ w1t:"Flexibility that covers several roles",w1d:"Editor, shooter, copywriter and AI video maker. No step in the video waits on someone else, from idea to final version.",
+ w2t:"I rescue difficult footage",w2d:"I received a video that wasn't shot in log, with weak lighting and very poor audio. I regraded it and fixed the sound in the mixer, and it came out high quality.",
+ w3t:"Big projects, not only reels",w3d:"I worked on large projects like a school opening shot on a Fuji camera, plus educational, religious and legal programs, including log footage and grading.",
+ w4t:"Your success comes first",w4d:"I organize files before I start, put each episode in its own sequence, and hand over work that any team can open and continue.",
+ work_h:"Work that speaks for itself",work_lead:"Tap any video to play it right here on the page. The featured projects were written, shot and produced entirely by me.",
+ more_p:"There are extra folders for every field: medical, legal, religious, real estate, fashion and ads.",more_btn:"All work on Drive",
+ ai_h:"AI video, from A to Z",
+ ai_lead:"I produce complete videos without anyone appearing on camera, with consistent characters, voice and motion.",
+ s1b:"Images:",s1d:"I generate images with Nano Banana Pro for high quality at volume.",
+ s2b:"Video:",s2d:"I turn them into video with Flow, Veo, Kling and Runway, depending on the shot.",
+ s3b:"Voice and motion:",s3d:"Voice from ElevenLabs, and motion graphics written as code with Claude.",
+ tools_h:"Tools I work with",
+ tools_p:"I write my own prompts with Gemini and Higgsfield, and write code with Claude. I choose the tool that fits the client's budget.",
+ pl_badge:"Built by me",pl_h:"ENP: a Premiere Pro plugin I built",
+ pl_lead:"I don't just use tools, I make them. ENP is a Premiere Pro plugin that saves editing time, and I work with it every day.",
+ pl1:"Automatic silence cutting",pl2:"A library of ready-made effects",pl3:"Automatic captions",pl4:"In beta and constantly improving",
+ pl_btn:"See the plugin",
+ kit_h:"Tools & skills",kit_lead:"Premiere is my main tool. I use the others as each project needs.",
+ k1:"My main tool. I know it well enough to have built a real plugin for it.",
+ k2:"Used selectively per project, since Premiere and my plugin cover most of the work.",
+ k3t:"Color grading",k3:"Correcting and grading log footage, turning raw into a cinematic look.",
+ k4t:"Audio engineering",k4:"Strong at audio cleanup, mixing and sound design.",
+ k5t:"CapCut & Photoshop",k5:"For fast reels, design work and photo editing.",
+ k6t:"Every kind of reel",k6:"Fast-paced social content with captions and transitions that hold the viewer.",
+ st_h:"More than an editor",
+ st1t:"Filming & lighting",st1d:"I worked for a period in a professional photo studio, with a strong background in light placement, finding new angles and choosing lighting that fits each scene and serves the message.",
+ st2t:"Writing & storytelling",st2d:"Skilled in content writing and storytelling, with a BA in Arabic Language from Benha University (2024), so my scripts are clean and error-free.",
+ st3t:"Commitment & stability",st3d:"Military service completed, available for full-time work, on-site or remote.",
+ ct_h:"Let's work together",ct_p:"Message me on WhatsApp and I'll reply as soon as I can."
+}};
+
+var lang = "ar";
+function $(s,r){return (r||document).querySelector(s)}
+
+function makePlayer(w){
+  var box=document.createElement("div");
+  box.className="player";
+  var ph=document.createElement("div");ph.className="ph";box.appendChild(ph);
+  var img=document.createElement("img");
+  img.alt="";img.loading="lazy";
+  img.src="https://drive.google.com/thumbnail?id="+w.id+"&sz=w1000";
+  img.onerror=function(){img.remove()};
+  box.appendChild(img);
+  var b=document.createElement("button");
+  b.className="play";b.type="button";
+  b.setAttribute("aria-label",lang==="ar"?"تشغيل الفيديو":"Play video");
+  b.innerHTML='<span class="tri"></span>';
+  b.onclick=function(){
+    var f=document.createElement("iframe");
+    f.src="https://drive.google.com/file/d/"+w.id+"/preview";
+    f.allow="autoplay; fullscreen";
+    f.allowFullscreen=true;
+    f.title=w[lang][0];
+    box.innerHTML="";box.appendChild(f);
+  };
+  box.appendChild(b);
+  var wrap=document.createElement("div");
+  wrap.appendChild(box);
+  var a=document.createElement("a");
+  a.className="openlink";a.target="_blank";a.rel="noopener";
+  a.href="https://drive.google.com/file/d/"+w.id+"/view";
+  a.textContent=lang==="ar"?"الفيديو مش بيشتغل؟ افتحه على Drive":"Video not playing? Open on Drive";
+  wrap.appendChild(a);
+  return wrap;
 }
-document.addEventListener('click',function(e){
- var f=e.target.closest('.fr');
- if(f&&!f.querySelector('iframe')){f.innerHTML='<iframe src="https://drive.google.com/file/d/'+f.dataset.id+'/preview" allow="autoplay;fullscreen" allowfullscreen loading="lazy"></iframe>';return}
- var c=e.target.closest('.chip');if(c){cur=c.dataset.c;render()}
-});
-$('#lang').onclick=function(){lang=lang=='ar'?'en':'ar';try{localStorage.setItem('l',lang)}catch(e){}render()};
-render();
+
+var filter="all";
+function renderWork(){
+  var chips=$("#chips"),grid=$("#grid");
+  chips.innerHTML="";grid.innerHTML="";
+  var present=[];
+  WORKS.forEach(function(w){if(present.indexOf(w.cat)<0)present.push(w.cat)});
+  var all=document.createElement("button");
+  all.className="chip";all.type="button";
+  all.setAttribute("aria-pressed",filter==="all");
+  all.textContent=lang==="ar"?"الكل":"All";
+  all.onclick=function(){filter="all";renderWork()};
+  chips.appendChild(all);
+  present.forEach(function(k){
+    var c=document.createElement("button");
+    c.className="chip";c.type="button";
+    c.style.setProperty("--c",CATS[k].c);
+    c.setAttribute("aria-pressed",filter===k);
+    c.innerHTML="<i></i>"+CATS[k][lang];
+    c.onclick=function(){filter=k;renderWork()};
+    chips.appendChild(c);
+  });
+  WORKS.filter(function(w){return filter==="all"||w.cat===filter}).forEach(function(w){
+    var card=document.createElement("article");
+    card.className="card";
+    card.style.setProperty("--c",CATS[w.cat].c);
+    card.appendChild(makePlayer(w));
+    var t=document.createElement("div");
+    t.innerHTML='<h3></h3><span class="tag"></span><p></p>';
+    $("h3",t).textContent=w[lang][0];
+    $(".tag",t).textContent=CATS[w.cat][lang];
+    $("p",t).textContent=w[lang][1];
+    card.appendChild(t);
+    grid.appendChild(card);
+  });
+}
+
+function renderHero(){
+  var h=$("#heroPlayer");h.innerHTML="";
+  h.appendChild(makePlayer(WORKS[0]));
+}
+
+function apply(){
+  var d=T[lang];
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-i]").forEach(function(el){
+    var k=el.getAttribute("data-i");
+    if(d[k]!==undefined)el.textContent=d[k];
+  });
+  $("#lang").textContent=lang==="ar"?"English":"عربي";
+  renderHero();renderWork();
+  try{localStorage.setItem("lang",lang)}catch(e){}
+}
+
+$("#lang").onclick=function(){lang=lang==="ar"?"en":"ar";apply()};
+try{var s=localStorage.getItem("lang");if(s==="en"||s==="ar")lang=s}catch(e){}
+apply();
 </script>
 </body>
 </html>
